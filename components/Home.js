@@ -21,19 +21,15 @@ const Home = () => {
         };
         const result = await axios.get('http://localhost:4000/api/me', config);
         setUser({
-          first_name: result.data.user.first_name ?? "-",
-          last_name: result.data.user.last_name ?? "-",
-          email: result.data.user.email ?? "-",
-          username: result.data.user.username ?? "-",
-          bio: result.data.user.bio ?? "-",
-          location: result.data.user.location ?? "-",
-          social_media_url: result.data.user.social_media_url ?? "-",
+          first_name: result.data.user.first_name,
+          last_name: result.data.user.last_name,
         });
       })();
     } catch (error) {
       console.log(error.response);
     }
   }, []);
+  
 
   return (
     <div className="home-bg-image">
